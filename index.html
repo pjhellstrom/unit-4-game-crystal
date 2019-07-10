@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
     <title>Crystal Game</title>
 </head>
 <body>
@@ -17,25 +17,85 @@
 <nav>
 
 </nav>
-    
-<div class="col-12 mainGameDiv">
+
+<!-- Start screen -->
+
+<div class="bg-warning startScreenDiv" id="startScreen">
+    <div class="row" id="startRow">
+        <h1 class="text-light bounce" id="startHeader">Crystals!</h1>
+        <button class="btn btn-lg btn-dark buttonStyle" id="startButton">
+            <span>Click to start </span>
+        </button>
+    </div>
+</div>
+
+
+<!-- Main game -->
+
+<div class="col-12 mainGameDiv" id="gameScreen" style="display: none;">
+    <br>
+
     <div class="row counterRow">
-        <div id="goalValue"></div>
-        <div id="guessValue"></div>
+        
+        <div class="" style="width: 12rem;">
+            <div class="" id="goalValue"></div>
+            <h3 class="">Target Value</h3>
+        </div>
+
+        <div class="" style="width: 12rem;">
+            <div id="guessValue"></div>
+            <h3 class="">Guess Value</h3>
+        </div>
+
     </div>
 
     <div class="row crystalRow">
-        <div class="crystal" id="crystal0" value="0"></div>
-        <div class="crystal" id="crystal1" value="1"></div>
-        <div class="crystal" id="crystal2" value="2"></div>
-        <div class="crystal" id="crystal3" value="3"></div>
+
+        <div class="crystal" id="crystal0" value="0"><i class="far fa-gem"></i></div>
+        <div class="crystal" id="crystal1" value="1"><i class="far fa-gem"></i></div>
+        <div class="crystal" id="crystal2" value="2"><i class="far fa-gem"></i></div>
+        <div class="crystal" id="crystal3" value="3"><i class="far fa-gem"></i></div>
+
     </div>
 
     <div class="row scoreRow">
-        <div id="winCount"></div>
-        <div id="loseCount"></div>
+
+        <div class="" style="width: 8rem;">
+            <div id="winCount"></div>
+            <h3 class="">Wins</h3>
+        </div>
+
+        <div class="" style="width: 8rem;">
+            <div id="loseCount"></div>
+            <h3 class="">Losses</h3>
+        </div>
     </div>
-</div>
+
+    <div class="row instructionsRow">
+
+        <div class="">
+            <br>
+            <div id="winCount"></div>
+            <h3 class="text-muted">Instructions:</h3>
+            <h4 class="text-muted">Click the gemstones to add to your counter <br>
+                The aim is to get the same total as the target value <br>
+                Three wins completes the game (three losses and the game is over)
+            </h4>
+        </div>
+
+    </div>
+
+</div> <!-- End main game -->
+
+<!-- Game over -->
+<div class="bg-warning endScreenDiv" id="endScreen" style="display:none">
+        <div class="row" id="startRow">
+            <h1 class="text-light" id="endHeader"></h1>
+            <button class="btn btn-lg btn-dark buttonStyle" id="restartButton">
+                <span>Play again </span>
+            </button>
+        </div>
+    </div>
 
 </body>
 </html>
