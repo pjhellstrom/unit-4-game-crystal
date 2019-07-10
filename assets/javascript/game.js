@@ -100,7 +100,7 @@ function decision() {
             }
             else {
             setTimeout(resetStats,0)
-            setTimeout(setValues,10)
+            setTimeout(setValues,0)
             setTimeout(updateStats,20)            
             }
     }// end else if
@@ -124,8 +124,8 @@ function decision() {
             }
             else {
             setTimeout(resetStats,0)
-            setTimeout(setValues,10)
-            setTimeout(updateStats,20)   
+            setTimeout(setValues,0)
+            setTimeout(updateStats,10)   
             }
     }// end else
 
