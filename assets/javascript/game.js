@@ -92,7 +92,7 @@ function decision() {
                 hideGameScreen();
                     // Setup end screen
                     $("#endScreen").removeClass("bg-warning")
-                    $("#endScreen").addClass("bg-danger")                    
+                    $("#endScreen").removeClass("bg-danger")                    
                     $("#endScreen").addClass("bg-success")
                     $("#endHeader").text("You did it!")
                 showEndScreen();
@@ -116,7 +116,7 @@ function decision() {
                 hideGameScreen();
                     // Setup end screen
                     $("#endScreen").removeClass("bg-warning")
-                    $("#endScreen").addClass("bg-success")                    
+                    $("#endScreen").removeClass("bg-success")                    
                     $("#endScreen").addClass("bg-danger")
                     $("#endHeader").text("Sorry, try again!")
                 showEndScreen();
