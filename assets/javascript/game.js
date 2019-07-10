@@ -1,9 +1,10 @@
 // Set variables --------------------------------------------------------
-const goalValueMax = 10;
-const crystalValueMax = 20;
+const targetValueMin = 19;
+const targetValueMax = 120;
+const crystalValueMax = 12;
 var crystalValues = [0, 0, 0, 0];
-var goalValue = 0;
-var guessValue = 0;
+var targetValue = 0;
+var playerValue = 0;
 var pointsAdded = 0;
 var winCount = 0;
 var loseCount = 0;
@@ -28,13 +29,14 @@ $(document).ready(function() {
 // Functions -------------------------------------------------------------
 
 function setValues() {
-    // Randomize goal value ----------------------------------------------
-    goalValue = Math.floor(Math.random() * goalValueMax);
-
+    // Randomize target value between floor and ceiling values -------------
+    while (targetValue < targetValueMin) {
+    targetValue = Math.floor(Math.random() * targetValueMax);
+    }
     // Randomize crystal values ------------------------------------------
     for (i = 0; i < crystalValues.length; i++) {
-    crystalValues[i] = Math.floor(Math.random() * crystalValueMax);
-    }// end for-loop
+    crystalValues[i] = Math.ceil(Math.random() * crystalValueMax);
+    }
 }//end setValues()
 
 function getClick() {
@@ -46,22 +48,22 @@ function getClick() {
     
 function addPoints(a) {
     pointsAdded = crystalValues[a];
-    guessValue = guessValue + pointsAdded;
+    playerValue = playerValue + pointsAdded;
     updateStats();
     decision();
 }// end addPoints()
 
 function updateStats() {
-        $("#goalValue").text(goalValue)
-        $("#guessValue").text(guessValue)
+        $("#targetValue").text(targetValue)
+        $("#playerValue").text(playerValue)
         $("#winCount").text(winCount)
         $("#loseCount").text(loseCount) 
 }// end updateStats()
 
 function resetStats() {
     crystalValues = [0, 0, 0, 0];
-    goalValue = 0;
-    guessValue = 0;
+    targetValue = 0;
+    playerValue = 0;
     pointsAdded = 0;
 }// end reset()
 
@@ -73,13 +75,13 @@ function resetWinLose() {
 // Decision function -----------------------------------------------------
 function decision() {
 
-    // Case1 : if guess is under goal - allow more guesses
-    if (guessValue < goalValue) {
+    // Case1 : if player is under target - allow more clicks
+    if (playerValue < targetValue) {
         return;
     }// end if
 
-    // Case2 : if guess is equal to goal - add to win count, setup new session
-    else if (guessValue == goalValue) {
+    // Case2 : if player is equal to target - add to win count, setup new session
+    else if (playerValue == targetValue) {
         // Alert winner
         alert("That's the number!");
         winCount++;
@@ -101,7 +103,7 @@ function decision() {
             }
     }// end else if
 
-    // Case3 : else guess is over goal - add to lose count, setup new session
+    // Case3 : else player is over target - add to lose count, setup new session
     else {
         // Alert game over
         alert("Too high!");

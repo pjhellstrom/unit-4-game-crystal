@@ -86,7 +86,6 @@
     align-items: center;
     width: 100vw;
     height: 700px;
-    border: 5px solid salmon;
 }
 
 .crystal {
@@ -95,6 +94,7 @@
     height: 100px;
     margin: 30px;
     text-align: center;
+    cursor: pointer;
 }
 
 #crystal0 {
