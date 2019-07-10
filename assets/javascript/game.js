@@ -65,6 +65,7 @@ function resetStats() {
     targetValue = 0;
     playerValue = 0;
     pointsAdded = 0;
+    updateStats();
 }// end reset()
 
 function resetWinLose() {
@@ -82,9 +83,9 @@ function decision() {
 
     // Case2 : if player is equal to target - add to win count, setup new session
     else if (playerValue == targetValue) {
-        // Alert winner
-        alert("That's the number!");
         winCount++;
+        // Alert winner
+        setTimeout(alert("That's the number!"),0);
             // Check for game over
             if (winCount > 2) {
                 resetStats();
@@ -98,18 +99,18 @@ function decision() {
                 showEndScreen();
             }
             else {
-            updateStats();
-            resetStats();
-            setValues();
+            setTimeout(resetStats,0)
+            setTimeout(setValues,10)
+            setTimeout(updateStats,20)            
             }
     }// end else if
 
     // Case3 : else player is over target - add to lose count, setup new session
     else {
-        // Alert game over
-        alert("Too high!");
         loseCount++;
-            // Check for game over
+        // Alert game over
+        setTimeout(alert("Too high!"),0);
+        // Check for game over
             if (loseCount > 2) {
                 resetStats();   
                 resetWinLose();             
@@ -122,9 +123,9 @@ function decision() {
                 showEndScreen();
             }
             else {
-            updateStats();
-            resetStats();
-            setValues();
+            setTimeout(resetStats,0)
+            setTimeout(setValues,10)
+            setTimeout(updateStats,20)   
             }
     }// end else
 
